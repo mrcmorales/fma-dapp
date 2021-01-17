@@ -1,0 +1,138 @@
+html {
+  position: relative;
+  height: 100%;
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 122, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  font-family: Inter, sans-serif !important;
+  font-size: 16px;
+}
+
+body{
+  min-height: 100%;
+}
+
+main {
+  margin-bottom: 60px;
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 122, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+nav{
+  background-color: #c43737;
+  font-size: 1.5rem;
+
+}
+nav a{
+  color: white;
+}
+nav a.active{
+  font-weight: 600;
+}
+
+
+.bg-flama,.flama{
+  background-color: #c43737;
+  opacity: 0.90;
+}
+
+.staking{
+  margin-top: 100px;
+  border-radius: 30px;
+}
+
+.staking .box-input{
+  margin-top: 10px;
+   border-radius: 20px;
+   border: 1px solid rgb(247, 248, 250);
+   background-color: rgb(255, 255, 255);
+}
+.staking .box-input .amount-box-title{
+  box-sizing: border-box;
+  margin: 0px;
+  min-width: 0px;
+  width: 100%;
+  display: flex;
+  padding: 0px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.staking .box-input .amount-box-title div{
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  align-items: center;
+  color: rgb(86, 90, 105);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 0.75rem 1rem 0px;
+}
+.staking .box-input .amount-box-input{
+  display: flex;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+}
+
+.staking .box-input input{
+  color: rgb(0, 0, 0);
+  width: 180px;
+  position: relative;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  flex: 1 1 auto;
+  background-color: rgb(255, 255, 255);
+  font-size: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0px;
+  appearance: textfield;
+}
+input[type="text"]:focus, .controls label:focus{
+  box-shadow: 0 0 0 rgb(255, 255, 255);
+  outline-width:0rem;
+
+}
+
+label {
+  color:black;
+}
+staking button.max:focus, staking button.max.active {
+  outline-width:0.5px;
+  outline-color:red;
+
+}
+button:focus, label:focus, .focus {
+  outline-width:0rem;
+  outline-color:red;
+
+}
+
+
+.staking button.max{
+  height: 28px;
+  background-color: rgb(253, 234, 241);
+  border: 1px solid rgb(253, 234, 241)!important;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  color: red;
+
+}
+
+.staking .accept button{
+  border-radius: 20px;
+}
