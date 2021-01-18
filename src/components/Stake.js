@@ -5,8 +5,9 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import FmaLogo from './../assets/images/token/FMA.png';
-import FssLogo from './../assets/images/token/FSS.png';
+import FmaTokenLogo from './../assets/images/token/FMA.png';
+import FssTokenLogo from './../assets/images/token/FSS.png';
+import FlapTokenLogo from './../assets/images/token/FLAP.png';
 import logo from "../assets/images/logo/flama.png";
 import Navbar from "react-bootstrap/Navbar";
 
@@ -20,6 +21,14 @@ class Stake extends Component {
         };
     }
 
+    PrintTokenFunction(token) {
+        return <span>
+              <img src={token.logo} width="25" className="d-inline-block align-top" alt="token"/>
+              <span>{token.name}</span>
+            </span>;
+    }
+
+
     render() {
 
         const radios = [
@@ -27,26 +36,20 @@ class Stake extends Component {
             {name: 'Unstake', value: 2},
         ];
 
-        const tokens =
+        const Tokens =
             {
-                fma: {name: 'FMA', logo: FmaLogo},
-                fss: {name: 'FSS', logo: FssLogo}
+                fma: {name: 'FMA', logo: FmaTokenLogo},
+                fss: {name: 'FSS', logo: FssTokenLogo},
+                flap: {name: 'FLAP', logo: FlapTokenLogo}
             };
 
-
-
-        console.log(tokens);
-        console.log(tokens["fma"].name);
-
-
-        const Send = this.state.value === 1 ? tokens['fma'] : tokens['fss'];
-        const Get = this.state.value === 2 ? tokens['fma'] : tokens['fss'];
+        const Send = this.state.value === 1 ? Tokens.fma : Tokens.fss;
+        const Get = this.state.value === 2 ? Tokens.fma : Tokens.fss;
 
         return (
             <React.Fragment>
-                <Col>
-                    <div className="staking p-5 mb-5 bg-white shadow">
-
+                <Col sm={6}>
+                    <div className="staking p-5 mb-5 bg-white shadow box-rounded">
                         <div className="controls text-center">
                             <ButtonGroup toggle>
                                 {radios.map((radio, idx) => (
@@ -75,49 +78,66 @@ class Stake extends Component {
                             <div className="amount-box-input">
                                 <FormControl type="text" placeholder="0.0"/>
                                 <button className="max">MAX</button>
-                                <span>
-                                    <img src={Send.logo} width="25" className="d-inline-block align-top" alt="token"/>
-                                    <span>{Send.name}</span>
-                                </span>
+                                {this.PrintTokenFunction(Send)}
                             </div>
                         </div>
                         <div className="box-input">
                             <div className="amount-box-title">
                                 <div className="">Receive</div>
-
                             </div>
                             <div className="amount-box-input">
                                 <FormControl type="text" placeholder="0.0" readOnly/>
-                                <span>
-                                  <img src={Get.logo} width="25" className="d-inline-block align-top" alt="token"/>
-                                    <span>{Get.name}</span>
-                                </span>
+                                {this.PrintTokenFunction(Get)}
                             </div>
                         </div>
-                        <div className="accept mt-5 text-center" >
-                            <Button variant="danger" size="lg" block>{radios[this.state.value-1].name}</Button>
-
+                        <div className="accept mt-5 text-center">
+                            <Button variant="danger" size="lg" block>{radios[this.state.value - 1].name}</Button>
                         </div>
-
-
-
                     </div>
                 </Col>
 
-
-                <Col>
-                    <div className="card staking shadow-sm rounded-lg">
-                        <div className="card-body">
-                            <h5 className="card-title">Special title treatment</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                <Col md={{span: 4, offset: 1}}>
+                    <div className="right-column">
+                    <div className="balances p-4 mb-3 bg-white shadow box-rounded   ">
+                        <h5>Balances</h5>
+                        <div className="box-input">
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.fma)}
+                            </div>
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.fss)}
+                            </div>
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.flap)}
+                            </div>
                         </div>
+                    </div>
+                    <div className="balances p-4 mb-5 bg-white shadow box-rounded   ">
+                        <h5>Balances</h5>
+                        <div className="box-input">
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.fma)}
+                            </div>
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.fss)}
+                            </div>
+                            <div className="amount-box-input">
+                                <FormControl type="text" value='0' readOnly/>
+                                {this.PrintTokenFunction(Tokens.flap)}
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </Col>
             </React.Fragment>
         );
     }
 }
+
 
 export default Stake;
